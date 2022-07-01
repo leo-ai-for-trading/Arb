@@ -14,12 +14,14 @@ Graphs can contain additional information, such as weights or letters, in the fo
 Our goal is to develop a systematic method for detecting arbitrage opportunities by framing the problem in the language of graphs. 
 
 ## Approach
-We will assign currencies to different vertices, and let the edge weight represent the exchange rate. 
-I decided to go further than Triangular Arbitrage by using all the tickers available through the **API** from **python-binance** library, with 
-```
-client.get_all_tickers()
-```
-This functions was included in the class `Trading`. 
+We will assign currencies to different vertices, and let the edge weight represent the exchange rate.
+find a cycle in the graph such that multiplying all the edge weights along that cycle results in a value greater than 1. In fact we have already described an algorithm that can find such a path – the problem is equivalent to finding a negative-weight cycle, provided we do some preprocessing on the edges.
+
+Firstly, we note that Bellman-Ford computes the path weight by adding the individual edge weights. To make this work for exchange rates, which are multiplicative, an elegant fix is to first take the logs of all the edge weights. Thus when we sum edge weights along a path we are actually multiplying exchange rates – we can recover the multiplied quantity by exponentiating the sum. Secondly, Bellman-Ford attempts to find minimum weight paths and negative edge cycles, whereas our arbitrage problem is about maximising the amoun t of currency received. Thus as a simple modification, we must also make our log weights negative.
+With these two tricks in hand, we are able to apply Bellman-Ford. The minimal weight between two currency vertices corresponds to the optimal exchange rate, the value of which can be found by by exponentiating the negative sum of weights along the path. As a corollary, we have the wonderful insight that: a negative-weight cycle on the negative-log graph corresponds to an arbitrage opportunity.
+
+## Code
+This functions of `Trading` class. 
 > List of functions:
 ```
 Trading.get_price()
