@@ -1,14 +1,20 @@
 # Crypto-Arbitrage with Bellman-Ford Algorithm written in Python
-The purpose of this repository is to provide strategy for Multi-Currency Arbitrage. Some definitions:
+## Definitions
 > Triangular arbitrage is the result of a discrepancy between three foreign currencies that occurs when the currency's exchange rates do not exactly match up. These opportunities are rare and traders who take advantage of them usually have advanced computer equipment and/or programs to automate the process.[^1]
 
-Graph:
+###### Graph:
 > A graph is a combinatorial object composed of a set of vertices V (also known as nodes) and a set of edges E. The edges correspond to pairs of vertices, which are generally distinct, and without a notion of order in the sense where (u,v) and (v,u) denote the same edge.
 At times, we consider a variant, the directed graph, where the edges have an ori- entation. In this case, the edges are usually known as arcs. The arc (u,v) has origin u and destination v. Most of the algorithms described in this book operate on directed graphs but can be applied to non-directed graphs by replacing each edge (u,v) by two arcs (u,v) and (v,u).
 Graphs can contain additional information, such as weights or letters, in the form of labels on the vertices or the edges.
+![](https://github.com/leo-ai-for-trading/Crypto-Arb/blob/main/clip/Schermata%202022-07-01%20alle%2013.56.37.png)
 
+###### Bellman-Ford algorithm:
+> The Bellman-Ford algorithm finds the minimum weight path from a single source vertex to all other vertices on a weighted directed graph.
 
 Our goal is to develop a systematic method for detecting arbitrage opportunities by framing the problem in the language of graphs. 
+
+## Approach
+We will assign currencies to different vertices, and let the edge weight represent the exchange rate. 
 I decided to go further than Triangular Arbitrage by using all the tickers available through the **API** from **python-binance** library, with 
 ```
 client.get_all_tickers()
