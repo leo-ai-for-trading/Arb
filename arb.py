@@ -6,7 +6,7 @@ import datetime
 import collections
 from binance.client import Client
 from binance import BinanceSocketManager
-from pyrsistent import b
+
 import config
 import pandas as pd
 import math
