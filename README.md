@@ -1,4 +1,4 @@
-# Crypto-Arbitrage with Bellman-Ford Algorith written in Python
+# Crypto-Arbitrage with Bellman-Ford Algorithm written in Python
 The purpose of this repository is to provide strategy for Multi-Currency Arbitrage. What is Triangular Arbitrage.
 > Triangular arbitrage is the result of a discrepancy between three foreign currencies that occurs when the currency's exchange rates do not exactly match up. These opportunities are rare and traders who take advantage of them usually have advanced computer equipment and/or programs to automate the process.[^1]
 
