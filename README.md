@@ -15,7 +15,7 @@ Trading.get_price()
 ```
 Trading.strategy()
 ```
-- recall the `Graph` class and the `Graph.bellman_ford()` to perform the strategy and print the  *boolean* variable `bol` (`True` if negative cycles were detected, `False` otherwise) and the **profit**  expressed as %
+- recall the `Graph` class[^2] and the `Graph.bellman_ford()` to perform the strategy and print the  *boolean* variable `bol` (`True` if negative cycles were detected, `False` otherwise) and the **profit**  expressed as %
 
 
 
