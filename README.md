@@ -7,6 +7,8 @@ Graph:
 At times, we consider a variant, the directed graph, where the edges have an ori- entation. In this case, the edges are usually known as arcs. The arc (u,v) has origin u and destination v. Most of the algorithms described in this book operate on directed graphs but can be applied to non-directed graphs by replacing each edge (u,v) by two arcs (u,v) and (v,u).
 Graphs can contain additional information, such as weights or letters, in the form of labels on the vertices or the edges.
 
+
+Our goal is to develop a systematic method for detecting arbitrage opportunities by framing the problem in the language of graphs. 
 I decided to go further than Triangular Arbitrage by using all the tickers available through the **API** from **python-binance** library, with 
 ```
 client.get_all_tickers()
